@@ -1,9 +1,30 @@
 # Conventional Commits 规范
 
+> **说明**：本文档是 Conventional Commits 的基础规范。实际使用时，commit skill 会根据项目配置（git-cz 或 cz-git）自动添加 emoji，但核心格式保持不变。
+
 ## 格式
 
+**基础格式（无 emoji）**：
 ```
 <type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+**git-cz 风格（默认）**：
+```
+<type>[optional scope]: <emoji> <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+**cz-git 风格（检测到配置时）**：
+```
+<emoji> <type>[optional scope]: <description>
 
 [optional body]
 
@@ -49,10 +70,12 @@ scope 表示 commit 影响的范围，基于项目结构而定。
 
 ## 示例
 
+**git-cz 风格（默认，带 emoji）**：
+
 完整示例：
 
 ```
-feat: 添加用户认证功能
+feat: 🎸 添加用户认证功能
 
 实现基于 JWT 的用户认证系统，支持登录和注册功能。
 
@@ -66,7 +89,21 @@ Closes #123
 Breaking Changes 示例：
 
 ```
-feat(api): 移除 deprecated 的用户列表端点
+feat(api): 🎸 移除 deprecated 的用户列表端点
 
 BREAKING CHANGE: /api/users/list 端点已被移除，使用 /api/users 替代
+```
+
+**纯文本格式（无 emoji）**：
+
+```
+feat: 添加用户认证功能
+
+实现基于 JWT 的用户认证系统，支持登录和注册功能。
+
+- 添加 /api/auth/login 端点
+- 添加 /api/auth/register 端点
+- 集成 JWT token 验证中间件
+
+Closes #123
 ```

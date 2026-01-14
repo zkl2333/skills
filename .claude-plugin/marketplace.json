@@ -10,12 +10,12 @@
   },
   "plugins": [
     {
-      "name": "commit-helper",
+      "name": "commit",
       "description": "Generate conventional commit messages following git-cz standards",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/commit-helper"
+        "./skills/commit"
       ]
     }
   ]
