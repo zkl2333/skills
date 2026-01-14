@@ -1,0 +1,22 @@
+{
+  "name": "zkl2333-skills",
+  "owner": {
+    "name": "zkl2333",
+    "email": "zkl2333@gmail.com"
+  },
+  "metadata": {
+    "description": "Personal collection of Claude Code skills",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "commit-helper",
+      "description": "Generate conventional commit messages following git-cz standards",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/commit-helper"
+      ]
+    }
+  ]
+}
