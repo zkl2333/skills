@@ -5,6 +5,7 @@
 ## 包含的 Skills
 
 - [commit](skills/commit/SKILL.md) - 生成符合 Conventional Commits 规范的 git commit message
+- [codex-cli](skills/codex-cli/SKILL.md) - 封装 OpenAI Codex CLI 终端编码代理能力
 
 ## 安装
 

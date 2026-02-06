@@ -17,6 +17,15 @@
       "skills": [
         "./skills/commit"
       ]
+    },
+    {
+      "name": "codex-cli",
+      "description": "Operate OpenAI Codex CLI terminal coding agent for software engineering tasks",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/codex-cli"
+      ]
     }
   ]
 }
