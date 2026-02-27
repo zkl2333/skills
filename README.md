@@ -21,7 +21,11 @@
 
 ## Installation
 
-推荐使用 [vercel-labs/skills](https://github.com/vercel-labs/skills) CLI 安装，支持 Claude Code、Codex、OpenCode、Cursor 等 40+ agent：
+二选一：要么用 CLI 自动安装（推荐），要么手动配置路径。
+
+### Option A: CLI 自动安装（推荐）
+
+使用 [vercel-labs/skills](https://github.com/vercel-labs/skills)：
 
 ```bash
 # 安装全部 skill
@@ -37,9 +41,9 @@ npx skills add zkl2333/skills -a claude-code -a codex
 npx skills add zkl2333/skills -g
 ```
 
-### OpenClaw
+### Option B: 手动安装/配置（OpenClaw）
 
-将 `skills/` 目录加入 `skills.load.extraDirs`：
+将仓库中的 `skills/` 目录加入 OpenClaw 的 `skills.load.extraDirs`：
 
 ```json
 {
@@ -51,7 +55,7 @@ npx skills add zkl2333/skills -g
 }
 ```
 
-MCP wrapper 类 skill 还需在 `mcporter.json` 中配置对应的 MCP server。
+如果你使用了 MCP wrapper 类 skill（见上方备注），还需要在 `mcporter.json` 中配置对应的 MCP server。
 
 ## Skill 结构
 
