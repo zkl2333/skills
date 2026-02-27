@@ -1,3 +1,8 @@
+---
+name: codex-cli
+description: "Operate OpenAI Codex CLI (terminal coding agent) to accomplish software engineering tasks. Use when the user asks to: run codex commands, use codex for coding tasks, execute codex exec for automation, do code review with codex, manage codex sessions (resume/fork), configure codex (config.toml, approval modes, sandbox), use codex cloud, set up MCP servers in codex, or any task involving the `codex` command-line tool. Triggers: codex, codex exec, codex review, codex cloud, codex mcp, codex resume, codex sandbox, openai codex."
+---
+
 # Codex CLI
 
 OpenAI's terminal coding agent. Reads, edits, and runs code locally with configurable sandbox and approval controls. Built in Rust, open source.

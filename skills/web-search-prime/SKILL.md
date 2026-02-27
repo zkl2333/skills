@@ -1,3 +1,8 @@
+---
+name: web-search-prime
+description: "Search the web via the Zhipu CodePlan MCP web-search-prime server. Use when you need fast web discovery (titles/URLs/snippets) without a browser. Triggers: web-search-prime, webSearchPrime, search web, web search prime."
+---
+
 Based on the Zhipu CodePlan MCP server configuration, this skill provides functionality for web searching.
 
 **Usage:**

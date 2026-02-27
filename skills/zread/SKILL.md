@@ -1,3 +1,8 @@
+---
+name: zread
+description: "Search and read GitHub repository docs via the Zhipu CodePlan MCP zread server. Use when you need quick repo structure lookup or documentation search without cloning. Triggers: zread, search_doc, repo structure, read_file, GitHub docs search."
+---
+
 Based on the Zhipu CodePlan MCP server configuration, this skill provides functionality for searching GitHub repositories (documents, issues, commits).
 
 **Usage:**

@@ -1,3 +1,8 @@
+---
+name: web-reader
+description: "Read and extract readable content from a URL via the Zhipu CodePlan MCP web-reader server. Use when you need to fetch and parse a web page into clean text/markdown, especially when browser automation is unnecessary. Triggers: web-reader, webReader, read webpage, extract article, fetch url."
+---
+
 Based on the Zhipu CodePlan MCP server configuration, this skill provides functionality for reading web page content.
 
 **Usage:**

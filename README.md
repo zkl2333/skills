@@ -8,38 +8,20 @@
 
 ## Skills
 
-### [commit](skills/commit/)
+当前目录：`skills/`
 
-生成符合 Conventional Commits 规范的 git 提交信息，支持自动配置检测。
+- `bark` — Bark(day.app) 推送通知
+- `caiyun-weather` — 彩云天气（通过 MCP 获取实时/预报/预警）
+- `check-updates` — OpenClaw 更新检查（三步：本地/npm/GitHub）
+- `codex-cli` — OpenAI Codex CLI 工作流封装
+- `commit` — Conventional Commits/emoji 风格提交
+- `first-principles-decomposer` — 第一性原理拆解框架
+- `web-reader` — MCP 网页正文提取
+- `web-search-prime` — MCP Web Search
+- `zai-mcp-server` — MCP 视觉/OCR/UI→artifact
+- `zread` — MCP GitHub 仓库文档检索
 
-**特性：**
-- 自动检测项目配置（cz-git、git-cz）
-- 支持 emoji 和纯文本格式
-- 自动执行 `git commit` 完成提交
-- 10 种标准 commit types
-
-**使用示例：**
-```bash
-# Claude Code 会自动分析变更并生成规范的提交信息
-# 例如：feat: 🎸 add user authentication
-```
-
-### [codex-cli](skills/codex-cli/)
-
-封装 OpenAI Codex CLI 终端编码代理能力，支持交互式和非交互式模式。
-
-**特性：**
-- 交互式编程、代码审查、自动化 exec
-- 审批模式和沙箱策略配置
-- MCP 服务器管理
-- CI/CD 集成支持
-
-**使用示例：**
-```bash
-codex "refactor this function"              # 交互模式
-codex exec "fix all tests"                  # 非交互模式
-codex review --base main                    # 代码审查
-```
+每个 skill 都是一个文件夹（至少包含 `SKILL.md`）。
 
 ## Installation
 
