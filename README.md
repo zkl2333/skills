@@ -6,6 +6,7 @@
 
 | Skill | 说明 | 备注 |
 |-------|------|------|
+| `amap-maps` | 高德地图（地理编码/路线/天气/POI） | MCP wrapper ¹ |
 | `bark` | Bark(day.app) 推送通知 | |
 | `caiyun-weather` | 彩云天气（实时/预报/预警） | MCP wrapper ¹ |
 | `check-updates` | OpenClaw 版本更新检查 | OpenClaw 专用 |
