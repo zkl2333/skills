@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TITLE=""
+BODY=""
+GROUP="openclaw"
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --title) TITLE="$2"; shift 2;;
+    --body) BODY="$2"; shift 2;;
+    --group) GROUP="$2"; shift 2;;
+    -h|--help)
+      cat <<'EOF'
+Usage: bark-send --title "..." --body "..." [--group "..."]
+Reads BARK_URL from ~/.openclaw-secrets/bark.url (BARK_URL=https://api.day.app/<key>/)
+EOF
+      exit 0
+      ;;
+    *)
+      echo "Unknown arg: $1" >&2
+      exit 2
+      ;;
+  esac
+done
+
+if [ -z "$BODY" ]; then
+  echo "--body is required" >&2
+  exit 2
+fi
+
+BARK_FILE="$HOME/.openclaw-secrets/bark.url"
+if [ ! -f "$BARK_FILE" ]; then
+  echo "Missing $BARK_FILE" >&2
+  exit 1
+fi
+
+# Parse BARK_URL=...
+BARK_URL=$(python3 - <<'PY'
+from pathlib import Path
+p=Path.home()/'.openclaw-secrets/bark.url'
+for line in p.read_text().splitlines():
+    line=line.strip()
+    if not line or line.startswith('#') or '=' not in line:
+        continue
+    k,v=line.split('=',1)
+    if k.strip()=='BARK_URL':
+        print(v.strip())
+        break
+PY
+)
+
+if [ -z "$BARK_URL" ]; then
+  echo "Missing BARK_URL=... in $BARK_FILE" >&2
+  exit 1
+fi
+
+BARK_URL="${BARK_URL%/}/"
+
+# POST to avoid URL length limits
+curl -fsSL --max-time 15 -X POST \
+  --data-urlencode "title=${TITLE:-Bark}" \
+  --data-urlencode "body=${BODY}" \
+  --data-urlencode "group=${GROUP}" \
+  "$BARK_URL" >/dev/null
+
+echo "sent"
