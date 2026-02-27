@@ -21,13 +21,20 @@
 
 ## Installation
 
-### Claude Code
+推荐使用 [vercel-labs/skills](https://github.com/vercel-labs/skills) CLI 安装，支持 Claude Code、Codex、OpenCode、Cursor 等 40+ agent：
 
 ```bash
-# 克隆仓库
-git clone https://github.com/zkl2333/skills.git
+# 安装全部 skill
+npx skills add zkl2333/skills
 
-# 在 Claude Code 设置中添加 skills/ 路径
+# 安装指定 skill
+npx skills add zkl2333/skills --skill caiyun-weather
+
+# 安装到指定 agent
+npx skills add zkl2333/skills -a claude-code -a codex
+
+# 全局安装
+npx skills add zkl2333/skills -g
 ```
 
 ### OpenClaw
