@@ -11,7 +11,7 @@
 | `check-updates` | OpenClaw 版本更新检查 | OpenClaw 专用 |
 | `codex-cli` | OpenAI Codex CLI 工作流封装 | |
 | `commit` | Conventional Commits/emoji 风格提交 | |
-| `first-principles-decomposer` | 第一性原理拆解框架 | |
+| `first-principles-decomposer` | 第一性原理拆解框架 | upstream (clawhub) |
 | `web-reader` | 网页正文提取 | MCP wrapper ¹ |
 | `web-search-prime` | Web Search | MCP wrapper ¹ |
 | `zai-mcp-server` | 视觉/OCR/UI→artifact | MCP wrapper ¹ |
