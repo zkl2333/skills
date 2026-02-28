@@ -9,7 +9,18 @@ description: "高德地图 API（通过 MCP）。地理编码（地址↔坐标�
 
 ## 前置条件
 
-- mcporter 已配置 `amap-maps` server（见 `config/mcporter.json`）
+- 在你的 `mcporter.json` 里加入 server 配置（合并到 `mcpServers` 下即可）：
+
+  ```json
+  "amap-maps": {
+    "command": "npx",
+    "args": ["-y", "@amap/amap-maps-mcp-server"],
+    "env": {
+      "AMAP_MAPS_API_KEY": "YOUR_AMAP_API_KEY"
+    }
+  }
+  ```
+
 - 需要高德 Web Service API Key（环境变量 `AMAP_MAPS_API_KEY`）
 
 ## 可用工具

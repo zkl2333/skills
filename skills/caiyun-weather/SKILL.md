@@ -9,7 +9,18 @@ description: "Get weather data via Caiyun (彩云天气) API through MCP. Use wh
 
 ## 前置条件
 
-- mcporter 已配置 `caiyun-weather` server（见 `config/mcporter.json`）
+- 在你的 `mcporter.json` 里加入 server 配置（合并到 `mcpServers` 下即可）：
+
+  ```json
+  "caiyun-weather": {
+    "command": "uvx",
+    "args": ["mcp-caiyun-weather"],
+    "env": {
+      "CAIYUN_WEATHER_API_TOKEN": "YOUR_CAIYUN_API_TOKEN"
+    }
+  }
+  ```
+
 - 需要彩云天气 API token（环境变量 `CAIYUN_WEATHER_API_TOKEN`）
 
 ## 常用坐标

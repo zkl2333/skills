@@ -3,6 +3,20 @@ name: zread
 description: "Search and read GitHub repository docs via the Zhipu CodePlan MCP zread server. Use when you need quick repo structure lookup or documentation search without cloning. Triggers: zread, search_doc, repo structure, read_file, GitHub docs search."
 ---
 
+## Prerequisites (mcporter)
+
+Add this server to your `mcporter.json` (merge under `mcpServers`):
+
+```json
+"zread": {
+  "baseUrl": "https://open.bigmodel.cn/api/mcp/zread/mcp",
+  "headers": {
+    "Authorization": "Bearer YOUR_ZHIPU_API_KEY",
+    "Accept": "application/json, text/event-stream"
+  }
+}
+```
+
 Based on the Zhipu CodePlan MCP server configuration, this skill provides functionality for searching GitHub repositories (documents, issues, commits).
 
 **Usage:**
