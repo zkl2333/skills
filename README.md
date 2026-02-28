@@ -55,7 +55,23 @@ npx skills add zkl2333/skills -g
 }
 ```
 
-如果你使用了 MCP wrapper 类 skill（见上方备注），还需要在 `mcporter.json` 中配置对应的 MCP server。
+### MCP Server 配置
+
+如果你使用了 MCP wrapper 类 skill（见上方备注），还需要配置对应的 MCP server：
+
+1. 复制示例配置：
+   ```bash
+   cp mcporter.example.json mcporter.json
+   ```
+2. 编辑 `mcporter.json`，替换占位符：
+   - `YOUR_ZHIPU_API_KEY` → 你的[智谱开放平台](https://open.bigmodel.cn/) API Key（用于 web-reader / zread / web-search-prime / zai-mcp-server）
+   - `YOUR_CAIYUN_API_TOKEN` → 你的[彩云天气](https://platform.caiyunapp.com/) API Token
+   - `YOUR_AMAP_API_KEY` → 你的[高德开放平台](https://lbs.amap.com/) Web 服务 API Key
+3. 删除不需要的 server 条目即可，不影响其他 skill。
+
+> `mcporter.json` 已在 `.gitignore` 中，不会被提交。`mcporter.example.json` 是不含真实密钥的示例文件。
+
+详细的 MCP server 配置说明（各 server 用途、参数、注意事项），参见 [mcporter.md](mcporter.md)。
 
 ## Skill 结构
 
