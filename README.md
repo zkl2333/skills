@@ -59,8 +59,6 @@ npx skills add zkl2333/skills -g
 
 每个 MCP wrapper 类 skill 的 `SKILL.md` 都包含可直接复制的 `mcpServers` 配置片段（按需合并到你的 `mcporter.json` 即可）。
 
-> 建议不要把包含真实 key 的 `mcporter.json` 提交到 git。
-
 ## Skill 结构
 
 ```
