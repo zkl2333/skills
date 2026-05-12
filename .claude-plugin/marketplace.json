@@ -26,6 +26,15 @@
       "skills": [
         "./skills/codex-cli"
       ]
+    },
+    {
+      "name": "pr-precheck",
+      "description": "Pre-submission due diligence for upstream PRs — duplicate scan, architecture currency, auto-discovery coverage",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/pr-precheck"
+      ]
     }
   ]
 }

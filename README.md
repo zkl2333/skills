@@ -12,6 +12,7 @@
 | `check-updates` | OpenClaw 版本更新检查 | OpenClaw 专用 |
 | `codex-cli` | OpenAI Codex CLI 工作流封装 | |
 | `commit` | Conventional Commits/emoji 风格提交 | |
+| `pr-precheck` | 上游 PR 提交前的尽职调查（查重 / 架构对齐 / 自动机制覆盖检查） | |
 | `web-reader` | 网页正文提取 | MCP wrapper ¹ |
 | `web-search-prime` | Web Search | MCP wrapper ¹ |
 | `zai-mcp-server` | 视觉/OCR/UI→artifact | MCP wrapper ¹ |
