@@ -7,6 +7,22 @@ description: Pre-submission due diligence for upstream PRs to public/large repos
 
 提交上游 PR 前的尽职调查 skill。**目标**：让你的 PR 不重复、不走偏、不过时、不被静默忽略。
 
+## 🛑 硬规则：对外大动作必须先停下等用户确认
+
+**在执行下列任何动作之前，必须先暂停并向用户复述将要做什么、得到明确"动手"信号才执行：**
+
+- 创建 PR（`gh pr create`）
+- 关闭 PR（`gh pr close`）
+- 在他人 PR / Issue 下评论（`gh pr comment`、`gh issue comment`）
+- 推送到非自有仓库分支（`git push` 到 fork 也算）
+- 任何会出现在他人通知/邮箱里的操作
+
+**理由**：这些动作会消耗仓库 maintainer 的注意力预算、留下永久痕迹、有时不可撤回。即使调研结论看起来很确定，最后的"按下发送"动作权属于人类——agent 应当呈现完整草稿（标题、body、目标 PR 号、关闭理由等）等待审核。
+
+**反模式**：autonomous mode 下"反正用户授权了就一路做完"——不行。autonomous 是说不需要逐步确认探索性操作，不是说可以自动 broadcast。
+
+**例外**：仅对自有仓的本地操作（local commit、push 到自己 fork 的私有分支）不需要逐项确认；但只要消息会进入第三方视野，回到主规则。
+
 ## 何时触发
 
 - 计划往一个非自有仓库提 PR（尤其大仓 / 高 PR backlog 的项目）

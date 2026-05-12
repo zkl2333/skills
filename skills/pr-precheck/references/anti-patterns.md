@@ -62,7 +62,25 @@
 
 ---
 
-## 反模式 7：发现 duplicate 后还想"补一个有价值的评论"
+## 反模式 7：autonomous 模式下不询问就 broadcast
+
+**场景**：用户开了 auto mode 让 agent 自主推进，agent 调研完直接 `gh pr create`、发现 duplicate 又直接 `gh pr close` + 评论，全程没停下确认。
+
+**实际**：autonomous 授权的是"探索性 / 可逆"操作（读代码、跑测试、改本地文件）。`pr create` / `pr close` / `pr comment` 是**对外广播**——会进入 maintainer 邮箱、留下永久痕迹、消耗他人 attention budget。即便草稿写得正确，"按下发送"的决策权属于人类。
+
+**真实后果**：在 hermes-agent 提了 #24130，被 reviewer 立即标 duplicate。如果 agent 在 `gh pr create` 之前停一下让用户复核 PR 描述、或者更早期就在调研结论里呈现"已发现 #22218 与本 PR diff 相同"，就根本不会走到提 PR 这一步。
+
+**教训**：**autonomous ≠ auto-broadcast**。
+
+明确分类：
+- ✅ Auto OK：本地 commit、本地测试、读代码、写 review notes、改本地文件
+- 🛑 必须先停：`gh pr create` / `pr close` / `pr comment` / `issue comment` / 任何 push 到非自有 fork、任何会触发他人通知的动作
+
+每次执行这类命令前都把"准备执行 X，确认后动手"显式说出来——把停顿变成习惯，不指望 autonomous 模式自己分得清。
+
+---
+
+## 反模式 8：发现 duplicate 后还想"补一个有价值的评论"
 
 **场景**：reviewer 标 duplicate，你想去 earliest PR 留言指出某个边界 bug，刷一次存在感+体现价值。
 
