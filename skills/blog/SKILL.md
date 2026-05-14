@@ -126,6 +126,26 @@ feat: 新增 <topic> 探索博客
 
 不 push（用户自己 push）。除非用户说"push 吧"。
 
+### 9. Skill 自我进化（**必走，结束前最后一步**）
+
+**博客 commit 完之后、在结束本轮对话前**，必须做一次反思：把这次写作过程里**学到的偏好 / 踩到的坑 / 暴露的工作流漏洞**映射成对 skill 文件本身的具体编辑提案。
+
+**反思维度**（每条都自问）：
+
+- **采访**：哪些问题用户秒答？哪些用户说"记不清 / 不纠结这个"？哪些被否决？
+- **调子**：用户重复纠正过的措辞 / 风格？用户夸过"对就是这味儿"的段落？
+- **事实校对**：用户的哪些记忆跟 git history 不一致？校对方式有没有更快的？
+- **流程**：哪一步多余、卡顿、被跳过、用户主动加塞？
+- **新场景**：这次出现了 skill 没覆盖的情况吗？
+
+**输出格式**：每条提案精确到 `file path + 文本差异 + 一句话解释`，**不要泛泛的"可以更好"**。
+
+**呈现给用户审 → 用户拍板 → agent 用 `Edit` 应用 → 单独的 commit 进 skills repo**（不混进博客 repo）。
+
+**没值得改就老实说**："这次没发现值得优化的点"。**不为了显得勤奋编造提案**——比错过真问题还糟。
+
+详见 [references/self-evolution.md](references/self-evolution.md)。
+
 ## 反模式（不许做）
 
 1. ❌ 一上来就 `Write` 一个完整草稿
@@ -157,3 +177,4 @@ feat: 新增 <topic> 探索博客
 - [references/voice.md](references/voice.md) — 文风对照表（真实例子）
 - [references/frontmatter.md](references/frontmatter.md) — Astro content schema
 - [references/images.md](references/images.md) — 封面图 + 内联图处理
+- [references/self-evolution.md](references/self-evolution.md) — 自我进化机制（每次写完反思 → 提案改 skill）
