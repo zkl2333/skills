@@ -1,11 +1,13 @@
 ---
 name: blog
-description: Write personal blog posts for the user's Astro blog at E:\workspace\mine\blog\blog (deployed to blog.zkl2333.com). Use when the user wants to write a new post, document a project/exploration, or record a story they've been through. Drives a multi-turn editor-style workflow — interview the user first, plan an outline, draft, iterate on facts and voice, add images, commit. Strongly opposes the "AI just generates text from scratch" pattern. See references/interview.md for the question bank, references/voice.md for tone patterns, references/frontmatter.md for the schema.
+description: Write personal blog posts for the user's Astro blog (git repo zkl2333/blog, deployed to blog.zkl2333.com). The local path varies per machine — discover it at runtime, never hardcode. Use when the user wants to write a new post, document a project/exploration, or record a story they've been through. Drives a multi-turn editor-style workflow — interview the user first, plan an outline, draft, iterate on facts and voice, add images, commit. Strongly opposes the "AI just generates text from scratch" pattern. See references/interview.md for the question bank, references/voice.md for tone patterns, references/frontmatter.md for the schema.
 ---
 
 # Blog
 
-为用户的个人博客（Astro，位于 `E:\workspace\mine\blog\blog`，部署到 `blog.zkl2333.com`）写文章。
+为用户的个人博客（Astro，部署到 `blog.zkl2333.com`，git 仓库 `zkl2333/blog`）写文章。
+
+> **本地路径随电脑变（用户多台机器切换），绝不写死任何绝对路径。** 每次运行时定位仓库见下「定位博客仓库」。
 
 ## 何时触发
 
@@ -78,6 +80,8 @@ description: Write personal blog posts for the user's Astro blog at E:\workspace
 
 让用户砍 / 加 / 换调子。**Outline 通过了才动笔写正文**。
 
+**叙事类文章，大纲里必须先把"精确因果链 / 时序"列出来给用户确认**——按对话 + git 重建"先发生什么、因为什么才有下一步"，别把同时发生 / 先后发生搞混，别把"中途被否的弯路"写成"起因"。本会话踩过：把先后两步的修复画成一张图（显得像一次搞定）、把后面才出现的弯路提前抛出来显得突兀。时序错位是用户最常打回的硬伤之一。
+
 ### 4. 写第一版
 
 - 用 `Write` 工具创建 `src/content/post/<slug>/index.md`
@@ -112,6 +116,8 @@ cd <blog-repo> && pnpm exec astro check
 ```
 
 确认 0 errors。**不**需要 `pnpm build`，除非改了组件 / 数据层（不只是新文章）。
+
+**含 mermaid / 图表的文章，astro check 不够**：本博客 `rehype-mermaid` 用 `pre-mermaid` 策略 = **客户端渲染**，语法错 / 渲染瞎 astro check 抓不到。必须起 dev 真渲一次（`.claude/launch.json` 里已有 `blog` 配置：`pnpm -C <blog 路径> exec astro dev --port 4321`，用 `preview_start` 起），导航到该文章，确认：① 每个 mermaid 块都渲成 `<svg>` 不是 raw 文本；② **在正文窄栏下字大可读**——窄栏一律 `flowchart TD`（竖排）不要 `LR`（横排会被压到看不清）；③ 配图都 200 正常加载。mermaid 标签别加引号 / 括号 / subgraph / classDef，对齐已跑通的文章方言（不确定就先看现有用过 mermaid 的文章怎么写的）。
 
 ### 8. Commit
 
@@ -159,9 +165,18 @@ feat: 新增 <topic> 探索博客
 9. ❌ 凡涉及历史事实，不查 git 就编 —— 用户记忆经常错位
 10. ❌ 不当 cover 加在 frontmatter，又同个图在正文重复出现
 
+## 定位博客仓库（每次开工第一件事）
+
+**本地路径随电脑变（用户多台机器，盘符/目录都不同），任何绝对路径都会过期。** 不写死、运行时定位，按序：
+
+1. 用户这次消息里给了路径 / `@` 了目录 → 直接用
+2. 扫工作目录和 additional working dirs，找 git remote 含 `zkl2333/blog`、且有 `src/content/post/` 的那个 Astro 仓库（`git -C <dir> remote -v` 命中 `zkl2333/blog` 即是）
+3. 还找不到 → **问用户**："博客仓库在这台机器的哪个路径？"——别猜、别拿历史路径硬试
+
+> 历史教训：skill 里曾写死 `E:\workspace\mine\blog\blog`，换机后变 `D:\workspace\个人\blog`，写死的全是错的。所以这条永远第一步、永远动态。
+
 ## 仓库约定（zkl2333/blog 特有）
 
-- **路径**：`E:\workspace\mine\blog\blog`
 - **包管理**：`pnpm`
 - **slug 风格**：kebab-case，文件路径 `src/content/post/<slug>/index.md`
 - **frontmatter title 上限 60 字符**（schema 强制）
