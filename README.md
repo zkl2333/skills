@@ -8,7 +8,6 @@
 |-------|------|------|
 | `amap-maps` | 高德地图（地理编码/路线/天气/POI） | MCP wrapper ¹ |
 | `bark` | Bark(day.app) 推送通知 | |
-| `blog` | 个人博客（Astro）写作工作流：采访→大纲→草稿→改→配图→提交 | |
 | `caiyun-weather` | 彩云天气（实时/预报/预警） | MCP wrapper ¹ |
 | `check-updates` | OpenClaw 版本更新检查 | OpenClaw 专用 |
 | `codex-cli` | OpenAI Codex CLI 工作流封装 | |
